@@ -38,22 +38,22 @@ public class BizOpCenterServiceTemplate extends BaseTemplate implements BaseOpCe
         try {
             LogUtil.info(">>> biz service start..");
 
-            //1.检查参数
+
             bizCallback.preCheck();
 
-            //2.初始化参数及上下文
+
             bizCallback.initContent(context);
 
-            //3.请求参数
+
             LogUtil.info(String.format(" Input ...Parameter [ %s ]  ",null==context.getInputModel()?null:context.getInputModel().toString()));
 
-            //4.业务处理
+
             bizCallback.doProcess(context);
 
-            //5.后置处理
+
             bizCallback.afterProcess(context);
 
-            //6.设置结果，默认true
+
             result.setResultObj(context.getOutputModel());
             result.setSuccess(true);
 
