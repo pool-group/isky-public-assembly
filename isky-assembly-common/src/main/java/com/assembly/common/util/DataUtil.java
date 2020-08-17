@@ -1,5 +1,6 @@
 package com.assembly.common.util;
 
+import com.assembly.common.model.tuple.Tuple2x;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 
@@ -146,6 +147,26 @@ public class DataUtil {
         }
     }
 
+//    public static void main(String[] args) {
+//        List<int[]> allValue1=Lists.newArrayList();
+//        List<int[]> allValue2=Lists.newArrayList();
+//        List<int[]> allValue3=Lists.newArrayList();
+//        List<int[]> allValue4=Lists.newArrayList();
+//        List<int[]> result=Lists.newArrayList();
+//        List<Integer> list=Lists.newArrayList(1,2,3,4,5);
+//        exec(list,"",0,2,allValue1);
+//        exec(list,"",0,3,allValue2);
+//        exec(list,"",0,4,allValue3);
+//        exec(list,"",0,5,allValue4);
+//
+//        result.addAll(allValue1);
+//        result.addAll(allValue2);
+//        result.addAll(allValue3);
+//        result.addAll(allValue4);
+//
+//        System.out.println();
+//    }
+
     /**
      * Merge two arrays
      *
@@ -158,6 +179,15 @@ public class DataUtil {
         System.arraycopy(var1,0,result,0,var1.length);
         System.arraycopy(var2,0,result,var1.length,var2.length);
         return result;
+    }
+
+    public static Tuple2x<Boolean,String> ifInclude(List<String> list,String str){
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).indexOf(str)!=-1) {
+                return new Tuple2x<Boolean,String>(true,list.get(i));
+            }
+        }
+        return new Tuple2x<Boolean,String>(false,"NULL");
     }
 
 }

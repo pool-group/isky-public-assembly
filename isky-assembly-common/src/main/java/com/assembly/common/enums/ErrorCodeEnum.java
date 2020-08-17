@@ -3,6 +3,7 @@ package com.assembly.common.enums;
 
 import com.assembly.common.constants.ResultCodeLevel;
 import com.assembly.common.constants.ResultCodeType;
+import com.assembly.common.model.ExcMessageModel;
 
 /**
  * 异常枚举定义
@@ -13,9 +14,10 @@ import com.assembly.common.constants.ResultCodeType;
 public enum ErrorCodeEnum {
 
 
-    BIZ_DEFAULT_EXCP(ResultCodeLevel.WARN, ResultCodeType.BIZ_ERROR,"301001000","Biz Service Exception.","业务异常,具体原因,请查看第三方错误堆栈信息"),
+    BIZ_DEFAULT_EXCP(ResultCodeLevel.WARN, ResultCodeType.BIZ_ERROR,"50001","Biz Service Exception.","业务异常,具体原因,请查看第三方错误堆栈信息"),
+    TOKEN_INVALID(ResultCodeLevel.WARN, ResultCodeType.BIZ_ERROR, "50002", "TOKEN INVALID", "token异常,请求无效"),
 
-    SYS_EXCP(ResultCodeLevel.SYS_EXCP, ResultCodeType.SYS_EXCP,"901001000","BizOpCenterServiceTemplate Unknown Exception.","系统未知异常");
+    SYS_EXCP(ResultCodeLevel.SYS_EXCP, ResultCodeType.SYS_EXCP,"90001","BizOpCenterServiceTemplate Unknown Exception.","系统未知异常");
 
 
 
@@ -71,5 +73,15 @@ public enum ErrorCodeEnum {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public ExcMessageModel form(){
+        ExcMessageModel em=new ExcMessageModel();
+        em.setCode(this.code);
+        em.setCodeLevel(this.codeLevel);
+        em.setCodeType(this.codeType);
+        em.setDesc(this.desc);
+        em.setMessage(this.getMessage());
+        return em;
     }
 }

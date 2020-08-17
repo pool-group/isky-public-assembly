@@ -20,6 +20,7 @@ public class BizRuntimeException extends RuntimeException {
 
     public BizRuntimeException(String message) {
         super(message);
+        this.excMessageModel=new ExcMessageModel();
         this.excMessageModel.setCode(ErrorCodeEnum.BIZ_DEFAULT_EXCP.getCode());
         this.excMessageModel.setCodeLevel(ErrorCodeEnum.BIZ_DEFAULT_EXCP.getCodeLevel());
         this.excMessageModel.setCodeType(ErrorCodeEnum.BIZ_DEFAULT_EXCP.getCodeType());

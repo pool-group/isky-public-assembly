@@ -75,7 +75,7 @@ public class HLock implements AutoCloseable {
             isLocked = lock.tryLock(var1, var2, var3);
             if (isLocked) {
                 LogUtil.info(String.format(" 获取redis tryLock锁成功：[%s]",isLocked));
-                stringRedisTemplate.opsForValue().set("lock:"+this.lockName+"executeTime.lock", String.valueOf(System.currentTimeMillis() + 30 * 1000));
+//                stringRedisTemplate.opsForValue().set("lock:"+this.lockName+"executeTime.lock", String.valueOf(System.currentTimeMillis() + 30 * 1000));
                 return true;
             }
         } catch (InterruptedException e) {
