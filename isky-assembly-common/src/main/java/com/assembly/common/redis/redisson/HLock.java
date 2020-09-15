@@ -49,6 +49,24 @@ public class HLock implements AutoCloseable {
         return lock.isLocked();
     }
 
+    public boolean fairLock(){
+        AssertUtil.isTrue(StringUtils.isBlank(this.lockName),"this lockName is null, please checking");
+        lock=redisClient.getFairLock(this.lockName);
+        lock.lock(10, TimeUnit.SECONDS);
+        if (lock.isLocked())
+            LogUtil.info(String.format(" 获取redis lock锁成功：[%s]",lock.isLocked()));
+        return lock.isLocked();
+    }
+
+    public boolean fairLock(long var1,TimeUnit var2){
+        AssertUtil.isTrue(StringUtils.isBlank(this.lockName),"this lockName is null, please checking");
+        lock=redisClient.getFairLock(this.lockName);
+        lock.lock(var1, var2);
+        if (lock.isLocked())
+            LogUtil.info(String.format(" 获取redis lock锁成功：[%s]",lock.isLocked()));
+        return lock.isLocked();
+    }
+
     public boolean tryLock(){
         AssertUtil.isTrue(StringUtils.isBlank(this.lockName),"this lockName is null, please checking");
         lock=redisClient.getLock(this.lockName);

@@ -84,7 +84,7 @@ public class BizOpCenterServiceTemplate extends BaseTemplate implements BaseOpCe
         }
         Long tm=watch.elapsed(TimeUnit.MILLISECONDS);
         if(tm.compareTo(1500L)==1)
-            LogUtil.warn(Log.MONITOR.LOG,String.format("BaseOpCenterServiceTemplate#doBizProcess：QuestParam=[ % ]  , Execution method time:[ %s ]ms",context.getInputModel(),tm));
+            LogUtil.warn(Log.MONITOR.LOG,String.format("BaseOpCenterServiceTemplate#doBizProcess：QuestParam=[ %s ]  , Execution method time:[ %s ]ms",context.getInputModel(),tm));
         return result;
     }
 }

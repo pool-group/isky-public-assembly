@@ -4,6 +4,7 @@ import com.assembly.common.model.tuple.Tuple2x;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.*;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.LinkedList;
@@ -190,4 +191,28 @@ public class DataUtil {
         return new Tuple2x<Boolean,String>(false,"NULL");
     }
 
+    /**
+     * 追加文件：使用FileWriter
+     *
+     * @param fileName
+     * @param content
+     */
+    public static void writeAppend(String fileName, String content) {
+        BufferedWriter out = null;
+        try {
+            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName, true)));
+            out.newLine();
+            out.write(content);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(out != null){
+                    out.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

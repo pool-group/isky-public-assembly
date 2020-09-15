@@ -2,6 +2,7 @@ package com.assembly.common.util;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -14,6 +15,30 @@ import java.util.Scanner;
  * 时间工具
  */
 public class TimeUtil {
+
+
+
+    public static String dataFormatForHour(Date changeDate){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHH");
+        String dateString = formatter.format(changeDate);
+        return dateString;
+    }
+
+    public static Date dateForStart(Date date) {
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        return calendar.getTime();
+    }
+
+    public static Date dateForEnd(Date date) {
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        return calendar.getTime();
+    }
 
     /**
      * 时间转换成小时数
