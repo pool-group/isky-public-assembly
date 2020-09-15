@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * com.assembly.common.redis.template
  *
- * @author duanpeng
- * @version Id: RedisTemplateOperate.java, v 0.1 2020年06月30日 10:53 duanpeng Exp $
+ * @author k.y
+ * @version Id: RedisTemplateOperate.java, v 0.1 2020年06月30日 10:53 k.y Exp $
  */
 @Component
 @RequiredArgsConstructor
