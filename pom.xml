@@ -8,7 +8,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.6.RELEASE</version>
+    <version>2.1.8.RELEASE</version>
   </parent>
 
   <groupId>com.public.assembly</groupId>
@@ -22,18 +22,46 @@
     <module>isky-apollo-client</module>
   </modules>
 
-  <name>isky-public-assembly</name>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mybatis-plus-extension.version>3.4.0</mybatis-plus-extension.version>
+    <mybatis-plus-boot-starter.version>3.4.0</mybatis-plus-boot-starter.version>
+    <mybatis-plus-core.version>3.4.0</mybatis-plus-core.version>
+    <mybatis-plus-annotation.version>3.4.0</mybatis-plus-annotation.version>
   </properties>
+
+  <name>isky-public-assembly</name>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>ma.glasnost.orika</groupId>
+        <artifactId>orika-core</artifactId>
+        <version>1.5.4</version>
+      </dependency>
+      <!--   mybatis plus         -->
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-core</artifactId>
+        <version>${mybatis-plus-core.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-extension</artifactId>
+        <version>${mybatis-plus-extension.version}</version>
+        <scope>compile</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis-plus-boot-starter.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.ctrip.framework.apollo</groupId>
         <artifactId>apollo-client</artifactId>
-        <version>1.5.0</version>
+        <version>1.7.0</version>
       </dependency>
       <!--Utils-->
       <dependency>
@@ -51,7 +79,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
-        <version>3.7</version>
+        <version>3.10</version>
       </dependency>
 
       <dependency>
@@ -70,6 +98,11 @@
         <groupId>com.auth0</groupId>
         <artifactId>java-jwt</artifactId>
         <version>3.8.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        <version>2.1.8.RELEASE</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
